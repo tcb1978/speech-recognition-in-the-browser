@@ -2,3 +2,6 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
+
+//create a paragraph
+let p = document.createElement('p');
