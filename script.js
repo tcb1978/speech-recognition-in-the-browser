@@ -9,13 +9,15 @@ const words = document.querySelector('.words');
 words.appendChild(p);
 
 recognition.addEventListener('result', e => {
+    // transcribe the array and map the array of getting the results and mapping the results to get each word
+    // in the transcription, then join into one string
     const transcript = [...e.results]
     .map(result => result[0])
     .map(result => result.transcript)
     .join('')
     console.log(transcript);
 })
-
-
+// start voice transcription over after the end of each sentence
+recognition.addEventListener('end', recognition.start);
 
 recognition.start();
