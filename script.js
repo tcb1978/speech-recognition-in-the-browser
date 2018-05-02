@@ -15,7 +15,12 @@ recognition.addEventListener('result', e => {
     .map(result => result[0])
     .map(result => result.transcript)
     .join('')
-    console.log(transcript);
+    // add to p tag and check if result is final
+    p.textContent = transcript;
+    if (e.results[0].isFinal) {
+        p = document.createElement('p');
+        words.appendChild(p);
+    }
 })
 // start voice transcription over after the end of each sentence
 recognition.addEventListener('end', recognition.start);
